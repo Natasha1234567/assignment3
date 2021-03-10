@@ -1,0 +1,22 @@
+<div class="login">
+  <form [formGroup]="loginForm" (submit)="login()">
+      <ul>
+          <li>
+              <mat-form-field appearance="outline">
+                  <mat-label>Enter your email</mat-label>
+                  <input type="email" matInput formControlName="email" (blur)="getEmail($event)">
+              </mat-form-field>
+              <button mat-flat-button color="accent" [disabled]="!(loginForm.controls['email'].valid)" class="loginBtn">Login</button>
+          </li>
+          <li>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('emailExists')">User with email {{loginForm.controls['email'].value}} does not exists, <a href="" routerLink="/register" routerLinkActive = "active">register now</a> to register.</mat-error>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required</mat-error>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('pattern')">Please provide a valid email Id.</mat-error>
+          </li>
+      </ul>
+  </form>
+</div>
+
+<div *ngIf = "showDetails">
+    <app-details-page [data] = "userData"></app-details-page>
+</div>

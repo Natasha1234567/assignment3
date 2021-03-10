@@ -1,0 +1,11 @@
+<div *ngIf = "data !== undefined">
+    <h1>User Details:</h1>
+    <p>User Full Name: {{data.name}}</p>
+    <p>UserName: {{data.username}}</p>
+    <p>Email: {{data.email}}</p>
+    <p *ngIf = "data.address !== undefined">Address: {{data.address.street}} {{data.address.city}} {{data.zipCode}}</p>
+    <p>Phone Number : {{data.phone}}</p>
+    <p *ngIf = "data.website !== undefined">Website : {{data.website}}</p>
+    <p *ngIf = "data.company !== undefined">Company: {{data.company.name}}</p>
+</div>
+
